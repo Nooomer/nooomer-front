@@ -1,0 +1,47 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the KVision package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: KVision\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-08-18 01:34+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: Russian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: ../src/jsMain/kotlin/com/example/App.kt:20
+msgid "This is a localized message."
+msgstr "Это локализованное сообщение"
+msgid "This is second translate message"
+msgstr "Это второе локализованное сообщение"
+msgid "Players"
+msgstr "Игроки"
+msgid "Last activity"
+msgstr "Последняя активность"
+msgid "Today"
+msgstr "Сегодня"
+msgid "Yesterday"
+msgstr "Вчера"
+msgid "A day before yesterday"
+msgstr "Позавчера"
+msgid "A few days ago"
+msgstr "Несколько дней назад"
+msgid "A week ago"
+msgstr "Неделю назад"
+msgid "More than a week ago"
+msgstr "Больше недели назад"
+msgid "A month ago"
+msgstr "Месяц назад"
+msgid "More than a month ago"
+msgstr "Больше месяца назад"
+msgid "But you can't come here"
+msgstr "А сюда нельзя"
