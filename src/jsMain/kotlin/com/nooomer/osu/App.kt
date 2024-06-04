@@ -3,6 +3,7 @@ package com.nooomer.osu
 import com.nooomer.osu.components.HomeComponent.home
 import com.nooomer.osu.components.LeaderboardsComponent.leaderboards
 import com.nooomer.osu.components.ProfileComponent.profile
+import com.nooomer.osu.components.SettingsComponent.settings
 import com.nooomer.osu.components.enums.AppView
 import com.nooomer.osu.components.states.AppState
 import com.nooomer.osu.models.playerInfo.Response
@@ -83,6 +84,10 @@ class App : Application() {
                 AppView.START -> {
 
                 }
+
+                AppView.SETTINGS -> {
+                    settings(appState)
+                }
             }
         }
         window.setTimeout({ routing.updatePageLinks() }, 0)
@@ -102,6 +107,11 @@ class App : Application() {
                 appState.value = appState.value.copy(appView = AppView.LEADERBOARD)
                 routing.updatePageLinks()
                 console.log("State: leaderboard, state: ${appState.value}")
+            })
+            .on("/settings", {
+                appState.value = appState.value.copy(appView = AppView.SETTINGS)
+                routing.updatePageLinks()
+                console.log("State: setting, state: ${appState.value}")
             })
             .notFound({
                 appState.value = appState.value.copy(appView = AppView.NOTFOUND, content = "")

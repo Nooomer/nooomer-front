@@ -6,4 +6,5 @@ enum class AppView {
     PROFILE,
     LEADERBOARD,
     NOTFOUND,
+    SETTINGS
 }
