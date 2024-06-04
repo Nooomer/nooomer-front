@@ -13,7 +13,9 @@ import io.kvision.state.ObservableValue
 import io.kvision.table.TableType
 import io.kvision.table.table
 import kotlinx.browser.window
+import kotlinx.serialization.ExperimentalSerializationApi
 
+@ExperimentalSerializationApi
 object ScoresComponent {
     fun Container.scoreTable(scores: MutableList<Scores>, scoreType: ScoreType, mode: String, appState: ObservableValue<AppState>) {
         div(className = "${scoreType.name.lowercase()}-scores container table-responsive") {

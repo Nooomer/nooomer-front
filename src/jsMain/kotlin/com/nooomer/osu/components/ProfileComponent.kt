@@ -2,6 +2,7 @@ package com.nooomer.osu.components
 
 import com.nooomer.osu.components.NavLinksComponent.modsNavLinks
 import com.nooomer.osu.components.ScoresComponent.scoreTable
+import com.nooomer.osu.components.enums.LeaderboardsView
 import com.nooomer.osu.components.enums.ScoreType
 import com.nooomer.osu.components.enums.ScoresOrigin
 import com.nooomer.osu.components.states.AppState
@@ -24,9 +25,11 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import kotlinx.serialization.ExperimentalSerializationApi
 import kotlin.js.Date
 import kotlin.math.abs
 
+@ExperimentalSerializationApi
 object ProfileComponent : Request {
 
     private var player: Player? = null
@@ -103,6 +106,9 @@ object ProfileComponent : Request {
             div(className = "ms-auto p-2 bd-highlight") {
                 link("Leaderboard", "/leaderboard", className = "link-dark")
             }
+        }
+        if(!window.localStorage.getItem("defaultLeaderboardType").isNullOrEmpty()){
+            leaderboardState.value = leaderboardState.value.copy(view = LeaderboardsView.valueOf(window.localStorage.getItem("defaultLeaderboardType")!!))
         }
         div(className = "scores").bind(leaderboardState) {
             if(appState.value.content == "5"){

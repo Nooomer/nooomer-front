@@ -12,7 +12,9 @@ import io.kvision.html.nav
 import io.kvision.pace.Pace
 import io.kvision.rest.RestClient
 import io.kvision.state.ObservableValue
+import kotlinx.serialization.ExperimentalSerializationApi
 
+@ExperimentalSerializationApi
 object NavLinksComponent {
     fun Container.modsNavLinks(
         restClient: RestClient,
