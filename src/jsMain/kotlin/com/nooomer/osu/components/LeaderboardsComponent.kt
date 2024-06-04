@@ -2,6 +2,7 @@ package com.nooomer.osu.components
 
 import com.nooomer.osu.components.HeaderComponent.navBar
 import com.nooomer.osu.components.NavLinksComponent.modsNavLinks
+import com.nooomer.osu.components.enums.LeaderboardsView
 import com.nooomer.osu.components.enums.ScoresOrigin
 import com.nooomer.osu.components.states.AppState
 import com.nooomer.osu.components.states.LeaderboardState
@@ -17,15 +18,22 @@ import io.kvision.rest.call
 import io.kvision.state.ObservableValue
 import io.kvision.state.bind
 import io.kvision.table.table
+import kotlinx.browser.window
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import kotlinx.serialization.ExperimentalSerializationApi
 
+@ExperimentalSerializationApi
 object LeaderboardsComponent {
     private var leaderboardState = ObservableValue(LeaderboardState())
     private var leaderboardTableState = ObservableValue(LeaderboardTableState())
     fun Container.leaderboards(restClient: RestClient, appState: ObservableValue<AppState>){
+        if(!window.localStorage.getItem("defaultLeaderboardType").isNullOrEmpty()){
+            leaderboardState.value = leaderboardState.value.copy(view = LeaderboardsView.valueOf(
+                window.localStorage.getItem("defaultLeaderboardType")!!))
+        }
         navBar()
         div(className = "leaderboard").bind(leaderboardState) {
             modsNavLinks(restClient, appState, leaderboardState, ScoresOrigin.LEADERBOARD)

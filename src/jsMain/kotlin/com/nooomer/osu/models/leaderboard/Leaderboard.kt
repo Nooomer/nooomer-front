@@ -1,7 +1,9 @@
 package com.nooomer.osu.models.leaderboard
 
+import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonNames
+@ExperimentalSerializationApi
 @Serializable
 data class Leaderboard(
     @JsonNames("player_id")
