@@ -20,12 +20,16 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import kotlinx.serialization.ExperimentalSerializationApi
 
+@ExperimentalSerializationApi
 private var playerInfos: MutableList<PlayerInfo> = arrayListOf()
+@ExperimentalSerializationApi
 private val playerObserver = ObservableListWrapper(playerInfos)
 
 private var startFlag = false
 
+@ExperimentalSerializationApi
 object HomeComponent : Request {
 
 

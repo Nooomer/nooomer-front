@@ -24,7 +24,9 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import kotlinx.serialization.ExperimentalSerializationApi
 
+@ExperimentalSerializationApi
 class App : Application() {
     var userExist = false
     override fun start() {
@@ -128,6 +130,7 @@ class App : Application() {
     }
 }
 
+@ExperimentalSerializationApi
 fun main() {
     startApplication(
         ::App,
