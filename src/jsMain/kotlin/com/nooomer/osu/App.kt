@@ -62,7 +62,7 @@ class App : Application() {
                         if (appState.value.jobState) {
                             if (userExist) {
                                 console.log("User exist, field: $userExist, job: $job")
-                                profile(restClient, appState)
+                                profile(restClient, appState, routing)
                             } else {
                                 console.warn("User not exist, field: $userExist")
                                 appState.value = appState.value.copy(appView = AppView.NOTFOUND, content = "")

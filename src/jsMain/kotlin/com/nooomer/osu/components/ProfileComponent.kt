@@ -16,6 +16,7 @@ import io.kvision.html.*
 import io.kvision.pace.Pace
 import io.kvision.rest.RestClient
 import io.kvision.rest.call
+import io.kvision.routing.Routing
 import io.kvision.state.ObservableState
 import io.kvision.state.ObservableValue
 import io.kvision.state.bind
@@ -38,7 +39,7 @@ object ProfileComponent : Request {
     private var scoresState = ObservableValue(ScoresState())
     private var startFlag = false
     private var job: Job? = null
-    fun Container.profile(restClient: RestClient, appState: ObservableValue<AppState>) {
+    fun Container.profile(restClient: RestClient, appState: ObservableValue<AppState>, routing: Routing) {
         Pace.start()
         header(className = "d-flex bd-highlight mb-3 align-items-center bg-success bg-gradient") {
             div(className = "col col-1") {
@@ -58,8 +59,16 @@ object ProfileComponent : Request {
                     div(className = "row align-items-center") {
                         this.paddingRight = 0.px
                         this.paddingLeft = 10.px
-                        h1("${player?.info?.name}") {
-                            this.paddingLeft = 5.px
+                        div(className = "row align-items-center row justify-content-start") {
+                            h1(className = "col col-md-auto") {
+                                this.content = "${player?.info?.name}"
+                                this.paddingLeft = 5.px
+                            }
+                            icon("bi bi-gear col col-md-auto"){
+                                this.paddingLeft = 2.px
+                            }.onClick {
+                                routing.navigate("settings")
+                            }
                         }
                         div(
                             content = "VN-PP: ${player?.listOfStats?.vannila?.pp}"
