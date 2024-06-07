@@ -15,6 +15,7 @@ import io.kvision.state.ObservableValue
 import io.kvision.state.bind
 import io.kvision.toast.ToastContainer
 import io.kvision.toast.ToastContainerPosition
+import io.kvision.utils.px
 import kotlinx.browser.window
 
 object SettingsComponent {
@@ -46,7 +47,9 @@ object SettingsComponent {
                     label = "Default leaderboard type",
                 ) {
                     this.selectedIndex = alreadyValueState.value.toIndex()
+
                 }.onChange {
+
                     chooises = this.selectedIndex
                 }
                 button(className = "settings-save-button", text = "Save", type = ButtonType.SUBMIT).onClick {
@@ -73,6 +76,9 @@ object SettingsComponent {
                     )
                     this.style = ButtonStyle.SUCCESS
                     this.text = "Saved"
+                }
+                div(content = "It's a local(save on devices) setting"){
+                    this.fontSize = 12.px
                 }
             }
 
